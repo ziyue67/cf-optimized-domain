@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light">
+    <title>CF 优选域名</title>
+    <meta
+      name="description"
+      content="自建 Cloudflare 优选域名静态页面，展示域名、优选 IP、复制按钮和使用说明。"
+    >
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./site.config.js" defer></script>
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero" aria-labelledby="site-title">
+        <div class="brand-row">
+          <div class="brand-mark" aria-hidden="true">
+            <span></span>
+          </div>
+          <div>
+            <p class="eyebrow" id="site-tagline">自建 Cloudflare 优选入口</p>
+            <h1 id="site-title">CF 优选域名</h1>
+          </div>
+        </div>
+
+        <div class="hero-grid">
+          <section class="copy-panel" aria-labelledby="domain-label">
+            <div class="panel-head">
+              <div>
+                <p class="muted">当前可用</p>
+                <h2 id="domain-label">默认接入域名</h2>
+              </div>
+              <span class="status-pill" id="status-label">静态托管</span>
+            </div>
+
+            <label class="domain-box" for="domain-input">
+              <span id="domain-hint">将这里替换为你自己的优选域名，按钮默认复制此域名。</span>
+              <input id="domain-input" type="text" value="cdn.example.com" readonly>
+            </label>
+
+            <div class="actions">
+              <button class="primary-action" type="button" id="copy-domain">
+                <span class="button-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" role="img" focusable="false">
+                    <path d="M8 8.5A2.5 2.5 0 0 1 10.5 6H17a2 2 0 0 1 2 2v8.5A2.5 2.5 0 0 1 16.5 19H10a2 2 0 0 1-2-2V8.5Z"></path>
+                    <path d="M6 15H5a2 2 0 0 1-2-2V5.5A2.5 2.5 0 0 1 5.5 3H13a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                </span>
+                <span id="copy-label">复制域名</span>
+              </button>
+              <a class="secondary-action" href="#usage">使用说明</a>
+            </div>
+
+            <p class="copy-state" id="copy-state" role="status" aria-live="polite"></p>
+          </section>
+
+          <aside class="visual-panel" aria-label="优选线路状态">
+            <div class="network-visual" aria-hidden="true">
+              <div class="pulse-node node-a"></div>
+              <div class="pulse-node node-b"></div>
+              <div class="pulse-node node-c"></div>
+              <div class="route route-a"></div>
+              <div class="route route-b"></div>
+              <div class="route route-c"></div>
+              <div class="core-node">CF</div>
+            </div>
+            <div class="status-card">
+              <p class="muted">运行方式</p>
+              <strong id="status-text">页面无需后台，可直接部署到静态服务器。</strong>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section-band" aria-labelledby="ip-title">
+        <div class="section-heading">
+          <p class="muted">优选 IP</p>
+          <h2 id="ip-title">线路展示</h2>
+        </div>
+        <div class="ip-grid" id="ip-grid"></div>
+      </section>
+
+      <section class="section-band usage-band" id="usage" aria-labelledby="usage-title">
+        <div class="section-heading">
+          <p class="muted">使用说明</p>
+          <h2 id="usage-title">接入步骤</h2>
+        </div>
+        <ol class="usage-list" id="usage-list"></ol>
+        <div class="link-row" id="link-row"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span id="footer-text">请把示例域名和 IP 替换为你自己的数据。</span>
+    </footer>
+  </body>
+</html>
